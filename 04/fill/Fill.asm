@@ -1,0 +1,106 @@
+(ENTRADA)
+@KBD
+D=M
+@PRETO
+D;JNE
+@BRANCO
+D;JEQ
+(PRETO)
+@i
+M=0
+@j
+M=0
+	(PLF)
+		(PLD)
+		@KBD
+		D=M
+		@ENTRADA
+		D;JEQ
+		@j
+		D=M
+		@31
+		D=D-A
+		@PF
+		D;JGT
+		@i
+		D=M
+		@j
+		D=D+M
+		@SCREEN
+		D=A+D
+		@24577
+		D=D-A
+		@ENTRADA
+		D;JEQ
+		@i
+		D=M
+		@j
+		D=D+M
+		@SCREEN
+		A=A+D
+		M=-1
+		@1
+		D=A
+		@j
+		M=M+D
+		@PLD
+		0;JMP
+	(PF)
+	@j
+	M=0
+	@31
+	D=A
+	@i
+	M=M+D
+	@PLF
+	0;JMP
+0;JMP
+(BRANCO)
+@i
+M=0
+@j
+M=0
+	(BLF)
+		(BLD)
+		@KBD
+		D=M
+		@ENTRADA
+		D;JNE
+		@j
+		D=M
+		@31
+		D=D-A
+		@BF
+		D;JGT
+		@i
+		D=M
+		@j
+		D=D+M
+		@SCREEN
+		D=A+D
+		@24577
+		D=D-A
+		@ENTRADA
+		D;JEQ
+		@i
+		D=M
+		@j
+		D=D+M
+		@SCREEN
+		A=A+D
+		M=0
+		@1
+		D=A
+		@j
+		M=M+D
+		@BLD
+		0;JMP
+	(BF)
+	@j
+	M=0
+	@31
+	D=A
+	@i
+	M=M+D
+	@BLF
+	0;JMP
